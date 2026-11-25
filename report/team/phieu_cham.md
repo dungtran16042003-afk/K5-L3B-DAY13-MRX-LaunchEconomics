@@ -2,20 +2,21 @@
 
 Nhóm số n chấm nhóm số n + 1; nhóm cuối chấm nhóm 1. Chấm theo bằng chứng trong hồ sơ, không theo cách trình bày: một đề xuất No-go có lý do bằng số được điểm cao hơn một đề xuất Go bỏ qua con số bất lợi.
 
-- Nhóm chấm (hội đồng): ...
-- Nhóm được chấm: ...
+- Nhóm chấm (hội đồng): MRX (L3B)
+- Nhóm được chấm: DK (L3B)
+- Bằng chứng đã đọc: `ho_so_launch_v0` và `chi_so` của nhóm DK. Chưa đọc `pilot_plan.yaml` của nhóm DK.
 
-| Tiêu chí | 0 điểm | 5 điểm | 10 điểm | Điểm | Lý do (có số) |
-| --- | --- | --- | --- | ---: | --- |
-| Đề xuất khớp bằng chứng | Mâu thuẫn với số của chính nhóm | Khớp nhưng bỏ qua một con số bất lợi | Khớp, nêu cả con số bất lợi và cách xử lý | ... | ... |
-| Số giả lập và phạm vi | Không nhãn; phạm vi "mọi yêu cầu" | Có nhãn hoặc có thu hẹp phạm vi | Nhãn ở mọi số giả lập; phạm vi thu hẹp có lý do bằng số | ... | ... |
-| Pilot ra được quyết định | Không đối chứng hoặc thiếu cỡ mẫu | Đủ cỡ mẫu, luật dừng chung chung | Tách được tác động, đủ mẫu, luật dừng có ngưỡng, thời hạn, người có quyền dừng | ... | ... |
-| **Tổng** | | | | **... / 30** | |
+| Tiêu chí                     | 0 điểm                                  | 5 điểm                                    | 10 điểm                                                                                            |             Điểm | Lý do (có số)                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ------------------------------ | ----------------------------------------- | ------------------------------------------- | ---------------------------------------------------------------------------------------------------- | -----------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Đề xuất khớp bằng chứng  | Mâu thuẫn với số của chính nhóm    | Khớp nhưng bỏ qua một con số bất lợi | Khớp, nêu cả con số bất lợi và cách xử lý                                                  |                 10 | "Go có điều kiện" khớp số của nhóm. Nêu cả số bất lợi: xem lại 100% = 0,98× đến 1,03× mức 12.000 đ [simulated], power 0,64 nếu tác động thật là 5 điểm, mở lại hiện 4,25%. Mỗi số có cách xử lý: điều kiện 3 (giảm xem lại theo bậc), điều kiện 4 (Giám đốc vận hành ký chấp nhận mức chênh 6 điểm), điều kiện 2 (đo phút thật thay số giả lập)                                                       |
+| Số giả lập và phạm vi     | Không nhãn; phạm vi "mọi yêu cầu"   | Có nhãn hoặc có thu hẹp phạm vi       | Nhãn ở mọi số giả lập; phạm vi thu hẹp có lý do bằng số                                  |                 10 | Nhãn `simulated` có ở các số chi phí và phút trong mục 1, 2, 3, 6, 7 và đề xuất. Phạm vi thu hẹp về `noi_dia` + `hang_nang` có lý do bằng số: `quoc_te` 1,88× và `doi_tac` 0,85× mức 12.000 đ [simulated]. So sánh cả hệ thống 5.865 đ (0,49×) đã gồm phần chuyển nhân viên                                                                                                                                              |
+| Pilot ra được quyết định | Không đối chứng hoặc thiếu cỡ mẫu | Đủ cỡ mẫu, luật dừng chung chung      | Tách được tác động, đủ mẫu, luật dừng có ngưỡng, thời hạn, người có quyền dừng |                 10 | Có đối chứng (20 + 20 nhân viên, ngẫu nhiên, phân tầng theo depot) và đủ cỡ mẫu cho mức chênh 6 điểm (859 hiệu dụng, m ≥ 299, DE 6,96), rollback 30 phút. Hồ sơ nêu "3 luật dừng đủ 4 vế" và đã cho thấy ngưỡng chi phí 6.708 đ; phần ngưỡng, thời hạn và người có quyền dừng của hai luật còn lại nên được trình bày thêm ngay trong hồ sơ hoặc trong `pilot_plan.yaml`. Cải thiện thêm thì tốt. |
+| **Tổng**                |                                           |                                             |                                                                                                      | **30 / 30** |                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
-**Quyết định của hội đồng:** Go · Go có điều kiện · No-go (giữ một)
+**Quyết định của hội đồng:** Go có điều kiện
 
-**Lý do:** ...
+**Lý do:** Quyết định của nhóm DK khớp bằng chứng của chính họ: chi phí cả hệ thống 0,49× mức 12.000 đ nhưng xem lại 100% đã chạm 0,98×–1,03×, và pilot chia theo nhân viên chỉ phát hiện mức chênh 6 điểm với power 0,64 ở mức 5 điểm. Do đó "Go có điều kiện" hợp lý hơn "Go". Nhóm nêu bốn điều kiện có người phụ trách. Điểm cần bổ sung: các điều kiện chỉ ghi mốc tương đối ("cuối tuần 1 pilot", "cuối bước 0.25"), chưa có ngày cụ thể.
 
-**Một câu hỏi cho đội trình:** ...
+**Một câu hỏi cho đội trình:** Ngưỡng chi phí 6.708 đ/việc của luật dừng áp dụng cho toàn phạm vi hay cho từng loại? Vì riêng `hang_nang` trong hồ sơ của nhóm đã bằng 0,69× mức 12.000 đ, tức khoảng 8.200 đ, cao hơn ngưỡng này, vậy luật có kích hoạt ngay từ tuần đầu không, và vì sao chọn mức gấp 1,5 lần chi phí toàn mẫu thay vì chi phí của phạm vi pilot (3.414 đ)?
 
-**Câu trả lời của đội trình (ghi lại tại buổi):** ...
+**Câu trả lời của đội trình (ghi lại tại buổi):** (điền tại buổi trình)
