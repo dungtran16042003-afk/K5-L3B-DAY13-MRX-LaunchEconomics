@@ -19,4 +19,6 @@ Nhóm số n chấm nhóm số n + 1; nhóm cuối chấm nhóm 1. Chấm theo b
 
 **Một câu hỏi cho đội trình:** Ngưỡng chi phí 6.708 đ/việc của luật dừng áp dụng cho toàn phạm vi hay cho từng loại? Vì riêng `hang_nang` trong hồ sơ của nhóm đã bằng 0,69× mức 12.000 đ, tức khoảng 8.200 đ, cao hơn ngưỡng này, vậy luật có kích hoạt ngay từ tuần đầu không, và vì sao chọn mức gấp 1,5 lần chi phí toàn mẫu thay vì chi phí của phạm vi pilot (3.414 đ)?
 
-**Câu trả lời của đội trình (ghi lại tại buổi):** (điền tại buổi trình)
+**Câu trả lời của đội trình (ghi lại tại buổi):** Nhóm DK trả lời: ngưỡng chi phí áp dụng cho toàn bộ phạm vi pilot gồm `noi_dia` và `hang_nang`. Nhóm thừa nhận ngưỡng 6.708 đ chưa hợp lý vì dựa trên chi phí toàn mẫu thay vì phạm vi pilot. Nhóm đề xuất điều chỉnh ngưỡng xuống 5.100 đ/việc [simulated], tương ứng 1,5 lần chi phí phạm vi pilot (3.414 đ). Luật dừng chỉ áp dụng từ bước rollout 25%, sau khi đã giảm tỷ lệ xem lại, vì xem lại 100% khiến chi phí lên tới 11.743 đ. Nếu chi phí vượt ngưỡng trong hai tuần liên tiếp, PM sẽ thu hẹp phạm vi về `noi_dia` và giới hạn tối đa hai lần chạy. Nhóm sẽ cập nhật đồng bộ hồ sơ Launch và Pilot Plan.
+
+Nhận xét của hội đồng: câu trả lời làm rõ phạm vi của ngưỡng, nêu lại đúng căn cứ (1,5 × 3.414 đ ≈ 5.121 đ, làm tròn xuống 5.100 đ) và chủ động nhận điểm chưa hợp lý. Việc cập nhật hồ sơ và Pilot Plan vẫn là cam kết, chưa phải bằng chứng đã nộp.
