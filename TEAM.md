@@ -9,12 +9,12 @@
 
 ## Thành viên
 
-| STT | Họ tên | MSSV | Email | GitHub | Vai trò |
-| --: | ------ | ---- | ----- | ------ | ------- |
-|   1 | Nguyễn Tấn Dũng | 2A202603734 | 26ai.dungnt15@vinuni.edu.vn | dungtran16042003-afk | Nhóm trưởng, người gắn nhãn 1 |
-|   2 |Nguyễn Duy Anh|2A202603796|26ai.anhnd15@vinuni.edu.vn|Danh1126|Người viết code + Người gắn nhãn 2|
-|   3 | Lê Huy Anh | 2A202603786 | hanhfpt2226@gmail.com | hann1holic | Người kiểm số, giữ hồ sơ launch, viết code D1 và E1 |
-|   4 | (không có, nhóm 3 người) | | | | |
+| STT | Họ tên           | MSSV        | Email                       | GitHub               | Vai trò                                                     |
+| --: | ------------------ | ----------- | --------------------------- | -------------------- | ------------------------------------------------------------ |
+|   1 | Nguyễn Tấn Dũng | 2A202603734 | 26ai.dungnt15@vinuni.edu.vn | dungtran16042003-afk | Nhóm trưởng, người gắn nhãn 1                         |
+|   2 | Nguyễn Duy Anh    | 2A202603796 | 26ai.anhnd15@vinuni.edu.vn  | Danh1126             | Người viết code + Người gắn nhãn 2                    |
+|   3 | Lê Huy Anh        | 2A202603786 | hanhfpt2226@gmail.com       | hann1holic           | Người kiểm số, giữ hồ sơ launch, viết code D1 và E1 |
+|     |                    |             |                             |                      |                                                              |
 
 Bốn vai của lab:
 
@@ -41,15 +41,9 @@ Sao chép mục dưới đây cho từng thành viên.
 
 ### Phần việc phụ trách
 
--
-
 ### Đóng góp cụ thể
 
--
-
 ### Bằng chứng
-
--
 
 ## NguyenTanDung-2A202603734
 
