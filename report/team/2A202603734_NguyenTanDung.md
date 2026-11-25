@@ -5,7 +5,7 @@
 - Họ tên: Nguyễn Tấn Dũng
 - MSSV: 2A202603734
 - Email: 26ai.dungnt15@vinuni.edu.vn
-- Vai trong nhóm (người viết code, người kiểm số, người gắn nhãn 1, người gắn nhãn 2 kiêm giữ hồ sơ): Người gắn nhãn 1, kiêm nhóm trưởng
+- Vai trong nhóm: Người gắn nhãn 1, kiêm nhóm trưởng
 
 ## 2. Phần việc phụ trách
 
