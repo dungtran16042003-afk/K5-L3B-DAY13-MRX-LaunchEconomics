@@ -37,4 +37,10 @@
 
 ## 6. Tự đánh giá
 
-(Điền sau khi hoàn thành bài lab.)
+**Làm được:** Điều phối nhóm 3 người khi đề bài thiết kế cho 4 người bằng cách gộp vai và chia việc theo từng checkpoint. Viết `pilot_plan.yaml` đủ trường, không còn dấu hỏi, ba luật dừng đủ bốn vế. Tự chạy lại và đối chiếu các số chính (4.472 đ; 5.865 đ; 859; power 0,64) với output của `lab13.py` trước khi đưa vào hồ sơ. Ban đầu mình để phần code A do AI viết, sau đó hoàn tác để người viết code của nhóm tự làm.
+
+**Chưa tốt:** Đồng thuận nhãn lần đầu chỉ 75% vì hai người hiểu khác nhau ranh giới giữa "Hệ thống", "Ngầm" và "Do người dùng"; lẽ ra nên đọc kỹ định nghĩa từng loại trước khi gắn. Ngày kiểm tra của các điều kiện trong hồ sơ còn là mốc tương đối ở một số chỗ, và ngưỡng bắt đầu giảm xem lại (đề xuất 15%) chưa được chốt trước khi gửi hồ sơ cho hội đồng.
+
+**Bài học:** Chi phí phải tính trên một việc thành công, và hơn 92% chi phí là giờ nhân viên [simulated], nên giá token gần như không quyết định. Pilot chia theo cụm bị giới hạn bởi số cụm chứ không phải tổng số yêu cầu, nên phải nói rõ đánh đổi mức chênh 6 điểm với power 0,64 thay vì giấu đi. Một đề xuất cần nêu cả con số bất lợi.
+
+**Kết quả duyệt chéo:** (điền sau buổi trình)

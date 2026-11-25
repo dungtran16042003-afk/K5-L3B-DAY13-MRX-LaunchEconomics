@@ -5,7 +5,7 @@
 - Tên nhóm: MRX (nhóm 3 người)
 - Lớp: L3B
 - Repo nhóm: `K5-L3B-DAY13-MRX-LaunchEconomics` (xem [SUBMISSION.md](SUBMISSION.md))
-- URL repo, nhánh nộp, commit chốt: https://github.com/dungtran16042003-afk/K5-L3B-DAY13-MRX-LaunchEconomics · nhánh `main` · commit chốt: (điền khi nộp bài)
+- URL repo, nhánh nộp, commit chốt: https://github.com/dungtran16042003-afk/K5-L3B-DAY13-MRX-LaunchEconomics · nhánh `main` · commit chốt: `3518cbc` (bản làm tại lớp; cập nhật lại nếu còn push thêm trước khi nộp)
 
 ## Thành viên
 
