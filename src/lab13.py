@@ -181,6 +181,71 @@ def in_chi_so_chay_thu(reqs):
     ):
         print(f'{ten}: {tu_so}/{mau_so} = {tu_so / mau_so:.2%}')
 
+# ---------- Nhiệm vụ B · Bảng độ nhạy ----------
+def in_nhiem_vu_b(runs, reqs):
+    print('\n--- Nhiệm vụ B1 · Độ nhạy 9 kịch bản ---')
+    goc = mo_hinh(runs, reqs)['cps']
+    kich_ban = {
+        'Giá token gấp đôi':        dict(gia_vao=52, gia_ra=260),
+        'Giá token giảm một nửa':   dict(gia_vao=13, gia_ra=65),
+        'Xem lại gấp đôi':          dict(he_so_xem_lai=2.0),
+        'Xem lại giảm một nửa':     dict(he_so_xem_lai=0.5),
+        'Làm lại gấp đôi':          dict(he_so_lam_lai=2.0),
+        'Làm lại giảm một nửa':     dict(he_so_lam_lai=0.5),
+        'Lương tăng 25%':           dict(luong_phut=2500),
+        'Tối đa 2 lần chạy':        dict(max_lan_chay=2),
+        'Chỉ 1 lần chạy':           dict(max_lan_chay=1),
+    }
+    print(f"{'Gốc (A2)':25s} | cps [simulated]={goc:8,.0f} đ |   0.0%")
+    for ten, kw in kich_ban.items():
+        cps = mo_hinh(runs, reqs, **kw)['cps']
+        pct = (cps / goc - 1.0) * 100.0
+        print(f"{ten:25s} | cps [simulated]={cps:8,.0f} đ | {pct:+6.1f}%")
+
+    print('\n--- Nhiệm vụ B2 · Đổi một cặp & xếp hạng 3 yếu tố ---')
+    cps_cap = mo_hinh(runs, reqs, gia_vao=52, gia_ra=260, he_so_xem_lai=2.0)['cps']
+    pct_cap = (cps_cap / goc - 1.0) * 100.0
+    print(f"Token x2 + Xem lại x2 [simulated]: {cps_cap:,.0f} đ ({pct_cap:+.1f}%)")
+    print("Xếp hạng 3 yếu tố mạnh nhất: 1. Số ca làm lại (+51.8%) | 2. Tỉ lệ xem lại (+40.7%) | 3. Lương nhân viên (+23.1%)")
+
+    print('\n--- Nhiệm vụ B3 · Giới hạn chạy lại & chi phí cả hệ thống ---')
+    tong_yc = len(reqs)
+    for k in [1, 2, 3]:
+        kq_k = mo_hinh(runs, reqs, max_lan_chay=k)
+        khong_tc = tong_yc - kq_k['thanh_cong']
+        ca_he_thong = kq_k['tong'] + khong_tc * BASELINE
+        print(
+            f"Tối đa {k} lần | trợ lý [simulated]={kq_k['tong']:10,.0f} đ | "
+            f"không TC={khong_tc:3d} | cả hệ thống [simulated]={ca_he_thong:10,.0f} đ | "
+            f"cps [simulated]={kq_k['cps']:6,.0f} đ"
+        )
+
+    print('\n--- Nhiệm vụ B4 · Xem lại 100% phạm vi (noi_dia + hang_nang) ---')
+    pv = reqs[reqs['loai'].isin(['noi_dia', 'hang_nang'])].copy()
+    runs_pv = runs[runs['request_id'].isin(pv['request_id'])]
+    token_tool_pv = float(
+        (runs_pv['tokens_in'] / 1000.0 * GIA_VAO
+         + runs_pv['tokens_out'] / 1000.0 * GIA_RA
+         + runs_pv['tool_calls'] * GIA_TOOL).sum()
+    )
+    req_co_ok = int(runs_pv[runs_pv['status'] == 'ok']['request_id'].nunique())
+    ca_lam_lai = int((pv['ket_qua'] == 'lam_lai').sum())
+    tc_pv = int((pv['ket_qua'] == 'thanh_cong').sum())
+
+    # Kịch bản đề cho: 5 phút xem lại/ca có ok, 9 phút làm lại/ca lam_lai
+    tong_b4_9p = token_tool_pv + req_co_ok * 5 * LUONG_PHUT + ca_lam_lai * 9 * LUONG_PHUT
+    cps_b4_9p = tong_b4_9p / tc_pv
+
+    # Kịch bản dùng trung bình thực tế cột phut_lam_lai_simulated (~15.3 phút/ca lam_lai)
+    tb_lam_lai = float(reqs.loc[reqs['ket_qua'] == 'lam_lai', 'phut_lam_lai_simulated'].mean())
+    tong_b4_thuc = token_tool_pv + req_co_ok * 5 * LUONG_PHUT + ca_lam_lai * tb_lam_lai * LUONG_PHUT
+    cps_b4_thuc = tong_b4_thuc / tc_pv
+
+    hoa_von_9p = (tc_pv * BASELINE - token_tool_pv - ca_lam_lai * 9 * LUONG_PHUT) / (req_co_ok * LUONG_PHUT)
+    hoa_von_thuc = (tc_pv * BASELINE - token_tool_pv - ca_lam_lai * tb_lam_lai * LUONG_PHUT) / (req_co_ok * LUONG_PHUT)
+
+    print(f"9 phút làm lại  -> tổng={tong_b4_9p:,.0f} đ | cps [simulated]={cps_b4_9p:,.0f} đ ({cps_b4_9p / BASELINE:.2f}x) | hòa vốn xem lại <= {hoa_von_9p:.1f} phút")
+    print(f"{tb_lam_lai:.1f} phút làm lại -> tổng={tong_b4_thuc:,.0f} đ | cps [simulated]={cps_b4_thuc:,.0f} đ ({cps_b4_thuc / BASELINE:.2f}x) | hòa vốn xem lại <= {hoa_von_thuc:.1f} phút")
 
 if __name__ == '__main__':
     runs = pd.read_csv('logix_runs.csv')
@@ -191,6 +256,7 @@ if __name__ == '__main__':
         print(f'{ten:15s} {gia_tri:>14,.2f}')
     in_nhiem_vu_a3(runs, reqs)
     in_nhiem_vu_a4(runs, reqs)
+    in_nhiem_vu_b(runs, reqs)
     
     # TODO CP1 · Nhiệm vụ A3: tính lại theo từng giá trị của cột loai.
     # TODO CP2 · Nhiệm vụ B: đổi từng yếu tố, ghi vào bảng độ nhạy.

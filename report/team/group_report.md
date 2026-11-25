@@ -4,8 +4,8 @@ Báo cáo ngắn, tối đa 2 trang. Số liệu chi tiết nằm trong các fil
 
 ## 1. Thông tin nhóm
 
-- Tên nhóm:
-- Lớp:
+- Tên nhóm: MRX (nhóm 3 người; đề bài thiết kế cho 4 người nên các vai được gộp, xem `TEAM.md`)
+- Lớp: L3B
 - Thành viên: xem `TEAM.md`
 
 ## 2. Mục tiêu và cách tiếp cận
