@@ -19,11 +19,14 @@ Viết "chỉ số trong đợt chạy thử là …", không viết "trợ lý 
 | Event | Ai tạo | Thuộc tính chính | Thời điểm |
 | --- | --- | --- | --- |
 | `refund_request_created` | Hệ thống ticket | `request_id`, `trace_id`, `created_at`, `loai` | Khi nhận yêu cầu, ở cả hai nhánh |
+| `input_validation_failed` | Dịch vụ tiếp nhận hoàn phí | `request_id`, `trace_id`, `field`, `error_code`, `occurred_at` | Khi một trường không đạt kiểm tra định dạng, trước khi tạo lệnh hoàn |
 | `pilot_assignment_recorded` | Dịch vụ phân nhóm | `request_id`, `trace_id`, `arm`, `staff_id`, `assigned_at` | Khi ghi nhận nhánh của yêu cầu |
 | `agent_suggestion_shown` | Giao diện CSKH | `request_id`, `trace_id`, `staff_id`, `shown_at` | Khi gợi ý hiển thị |
 | `agent_run_completed` | Trợ lý | `request_id`, `trace_id`, `attempt`, `status`, `completed_at` | Khi kết thúc mỗi lần chạy |
 | `staff_review_decision` | Giao diện CSKH | `request_id`, `trace_id`, `decision` (giữ, sửa, bỏ), `review_minutes`, `reviewed_at` | Khi nhân viên chốt quyết định |
 | `staff_rework_completed` | Giao diện CSKH | `request_id`, `trace_id`, `rework_minutes`, `completed_at` | Khi nhân viên sửa xong một kết quả sai |
+| `refund_ledger_write` | Dịch vụ sổ cái | `request_id`, `trace_id`, `idempotency_key`, `result` (ok, lỗi), `http_status`, `occurred_at` | Sau mỗi lần thử ghi giao dịch hoàn tiền |
+| `handoff_to_staff` | Trợ lý | `request_id`, `trace_id`, `loai`, `reason` (ví dụ `thieu_du_lieu`), `handed_off_at` | Khi yêu cầu được chuyển vào hàng đợi của nhân viên |
 | `ticket_closed` | Hệ thống ticket | `request_id`, `trace_id`, `closed_at` | Khi đóng yêu cầu |
 | `ticket_reopened` | Hệ thống ticket | `request_id`, `trace_id`, `reopened_at` | Khi yêu cầu mở lại |
 | `refund_audit_completed` | Kế toán | `request_id`, `trace_id`, `paid_vnd`, `expected_vnd`, `audited_at` | Khi hoàn tất kiểm tra mẫu hằng tuần |
@@ -34,6 +37,7 @@ Viết "chỉ số trong đợt chạy thử là …", không viết "trợ lý 
 - Bỏ qua gợi ý: đếm quyết định sửa hoặc bỏ trên số yêu cầu có quyết định xem lại.
 - Hiện gợi ý: nối sự kiện phân nhánh và hiển thị. Hoàn sai tiền: so sánh hai số tiền trong sự kiện kiểm tra.
 - Dùng cùng `trace_id` từ lúc tạo yêu cầu và đếm theo `request_id` để các lần chạy lại không làm tăng mẫu số.
+- [Bảng khắc phục](bang_loi.md) dùng `input_validation_failed` cho ca 1, `refund_ledger_write` để đối soát ca 7 và `handoff_to_staff` với `reason=thieu_du_lieu` cho ca 4.
 
 ## E2 · Rủi ro kinh tế
 

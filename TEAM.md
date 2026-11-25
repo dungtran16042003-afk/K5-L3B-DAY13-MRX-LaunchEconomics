@@ -13,7 +13,7 @@
 | --: | ------ | ---- | ----- | ------ | ------- |
 |   1 | Nguyễn Tấn Dũng | 2A202603734 | 26ai.dungnt15@vinuni.edu.vn | dungtran16042003-afk | Nhóm trưởng, người gắn nhãn 1 |
 |   2 |Nguyễn Duy Anh|2A202603796|26ai.anhnd15@vinuni.edu.vn|Danh1126|Người viết code + Người gắn nhãn 2|
-|   3 | Lê Huy Anh | 2A202603786 | hanhfpt2226@gmail.com | | Người kiểm số, giữ hồ sơ launch, viết code D1 và E1 |
+|   3 | Lê Huy Anh | 2A202603786 | hanhfpt2226@gmail.com | hann1holic | Người kiểm số, giữ hồ sơ launch, viết code D1 và E1 |
 |   4 | (không có, nhóm 3 người) | | | | |
 
 Bốn vai của lab:
@@ -67,3 +67,19 @@ Sao chép mục dưới đây cho từng thành viên.
 ### Bằng chứng
 
 - Commit `03ff33d` trên `main`: `report/team/pilot_plan.yaml`.
+
+## LeHuyAnh-2A202603786
+
+### Phần việc phụ trách
+
+- Kiểm số A–B, giữ hồ sơ launch và phụ trách phần tính cỡ mẫu D1, chỉ số chạy thử E1 và rủi ro kinh tế E2.
+
+### Đóng góp cụ thể
+
+- Đối chiếu hóa đơn token và tool, điền kết quả A1–A4 và B1–B4 từ code đã chạy.
+- Bổ sung code tính D1/E1, hai dòng rủi ro E2 và danh sách event. Cập nhật mục so sánh chi phí trong hồ sơ launch để tính cả phần nhân viên làm thay.
+- Đối chiếu danh sách event với bảng khắc phục của nhóm và bổ sung ba event dùng cho ca 1, 7 và 4.
+
+### Bằng chứng
+
+- `f927f85` cho D1/E1 và phép đối chiếu hóa đơn, `87d6acc` cho A1–A4, `d6a442e` cho B1–B4 và E2, `ed6cf7b` cho so sánh chi phí toàn hệ thống. Xem thêm [báo cáo cá nhân](report/team/2A202603786_LeHuyAnh.md) và [danh sách event](report/team/chi_so.md).
