@@ -28,7 +28,7 @@
 ## 5. Công cụ AI đã dùng
 
 - Claude Code: đọc và tóm tắt đề, tài liệu, quy tắc; soạn bản nháp `pilot_plan.yaml` và file chia việc nội bộ.
-- Cách tự kiểm tra: chạy lại các số D1 (1.251; 3.103; 1.000; 300; 299) và các chỉ số 82,83%, 27,12%, 4,25% bằng Python trên hai file CSV; tự tính lại power 0,642 ở mức chênh 5 điểm; kiểm tra `yaml.safe_load` đọc được file và không còn từ "production".
+- Cách tự kiểm tra: chạy lại các số D1 (1.251; 3.103; 1.000; 300; 299) và các chỉ số 82,83%, 27,12%, 4,25% bằng Python trên hai file CSV; tự tính lại power 0,642 ở mức chênh 5 điểm; kiểm tra `yaml.safe_load` đọc được file và không còn dấu hỏi nào ngoài dòng chú thích.
 - Không dùng AI để gắn nhãn 20 ca lỗi hay chấm duyệt chéo.
 
 ## 6. Tự đánh giá
