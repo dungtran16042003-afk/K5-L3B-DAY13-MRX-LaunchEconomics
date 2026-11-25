@@ -22,7 +22,9 @@ Số tính bằng `src/lab13.py`. Mọi con số tính từ cột `_simulated` g
 | Tổng chi phí | ... | | |
 | Số việc thành công | ... | `ket_qua` | |
 | Chi phí mỗi việc thành công | ... | | |
-| Hoá đơn token và tool chia cho số yêu cầu | ... | | |
+| Hoá đơn token và tool chia cho số yêu cầu | 274,65 | `logix_runs.csv`, chia cho 1.200 yêu cầu | đo từ trace |
+
+Phép tính đối chiếu cho TV3: [(5.771.712 × 26 + 734.774 × 130) ÷ 1.000 + 5.600 × 15] ÷ 1.200 = 274,65 đ/yêu cầu. Cộng token và tool trên cả 1.624 lần chạy.
 
 - Chi phí mỗi việc thành công gấp bao nhiêu lần "hoá đơn chia số yêu cầu"? ...
 - Khoản nào chiếm tỉ trọng lớn nhất trong tổng chi phí, bao nhiêu phần trăm? ...
