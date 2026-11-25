@@ -21,7 +21,9 @@ Viết "chỉ số trong đợt chạy thử là …", không viết "trợ lý 
 | `refund_request_created` | Hệ thống ticket | `request_id`, `trace_id`, `created_at`, `loai` | Khi nhận yêu cầu, ở cả hai nhánh |
 | `pilot_assignment_recorded` | Dịch vụ phân nhóm | `request_id`, `trace_id`, `arm`, `staff_id`, `assigned_at` | Khi ghi nhận nhánh của yêu cầu |
 | `agent_suggestion_shown` | Giao diện CSKH | `request_id`, `trace_id`, `staff_id`, `shown_at` | Khi gợi ý hiển thị |
-| `staff_review_decision` | Giao diện CSKH | `request_id`, `trace_id`, `decision` (giữ, sửa, bỏ), `reviewed_at` | Khi nhân viên chốt quyết định |
+| `agent_run_completed` | Trợ lý | `request_id`, `trace_id`, `attempt`, `status`, `completed_at` | Khi kết thúc mỗi lần chạy |
+| `staff_review_decision` | Giao diện CSKH | `request_id`, `trace_id`, `decision` (giữ, sửa, bỏ), `review_minutes`, `reviewed_at` | Khi nhân viên chốt quyết định |
+| `staff_rework_completed` | Giao diện CSKH | `request_id`, `trace_id`, `rework_minutes`, `completed_at` | Khi nhân viên sửa xong một kết quả sai |
 | `ticket_closed` | Hệ thống ticket | `request_id`, `trace_id`, `closed_at` | Khi đóng yêu cầu |
 | `ticket_reopened` | Hệ thống ticket | `request_id`, `trace_id`, `reopened_at` | Khi yêu cầu mở lại |
 | `refund_audit_completed` | Kế toán | `request_id`, `trace_id`, `paid_vnd`, `expected_vnd`, `audited_at` | Khi hoàn tất kiểm tra mẫu hằng tuần |
@@ -39,5 +41,5 @@ Viết "chỉ số trong đợt chạy thử là …", không viết "trợ lý 
 
 | Rủi ro | Tác động đã tính | Dấu hiệu theo dõi | Hành động | Người phụ trách |
 | --- | --- | --- | --- | --- |
-| ... | ... | ... | ... | ... |
-| ... | ... | ... | ... | ... |
+| Số ca làm lại tăng | B1 toàn mẫu: làm lại gấp đôi → 6.787 đ/việc, tăng 51,8% (`simulated`) | Theo tuần, số yêu cầu có `staff_rework_completed` chia cho số yêu cầu trong phạm vi. Mốc chạy thử: 48/982 = 4,89%. | Nếu tỷ lệ vượt mốc chạy thử, rà trace các ca làm lại theo loại yêu cầu trước khi mở rộng. | PM trợ lý hoàn phí |
+| Phải duy trì xem lại 100% | B4 trong phạm vi pilot: 11.743–12.415 đ/việc, bằng 0,98–1,03× mức 12.000 đ (`simulated`) | Theo tuần, dùng `agent_run_completed` và `staff_review_decision` để đo tỷ lệ xem lại trên yêu cầu có lượt `ok`, cùng số phút xem lại trung bình. | Nếu vẫn phải xem lại toàn bộ và trung bình vượt 4,8 phút/lượt, giữ nguyên phạm vi và thử rút ngắn thao tác. Chỉ thử giảm tỷ lệ xem lại khi chỉ số an toàn đạt ngưỡng pilot. | Trưởng nhóm CSKH |

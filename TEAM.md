@@ -2,17 +2,17 @@
 
 ## Thông tin nhóm
 
-- Tên nhóm:
-- Lớp: L3A hoặc L3B
-- Repo nhóm: `K5-L3A-DAY13-TenNhom-LaunchEconomics` (xem [SUBMISSION.md](SUBMISSION.md))
-- URL repo, nhánh nộp, commit chốt:
+- Tên nhóm: MRX (nhóm 3 người)
+- Lớp: L3B
+- Repo nhóm: `K5-L3B-DAY13-MRX-LaunchEconomics` (xem [SUBMISSION.md](SUBMISSION.md))
+- URL repo, nhánh nộp, commit chốt: https://github.com/dungtran16042003-afk/K5-L3B-DAY13-MRX-LaunchEconomics · nhánh `main` · commit chốt: (điền khi nộp bài)
 
 ## Thành viên
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 |Nguyễn Duy Anh|2A202603796|26ai.anhnd15@vinuni.edu.vn|Danh1126|Người viết code + Người gắn nhãn 2|
-|   2 |        |      |       |        |         |
+|   1 | Nguyễn Tấn Dũng | 2A202603734 | 26ai.dungnt15@vinuni.edu.vn | dungtran16042003-afk | Nhóm trưởng, người gắn nhãn 1 |
+|   2 |Nguyễn Duy Anh|2A202603796|26ai.anhnd15@vinuni.edu.vn|Danh1126|Người viết code + Người gắn nhãn 2|
 |   3 |        |      |       |        |         |
 |   4 |        |      |       |        |         |
 
@@ -50,3 +50,20 @@ Sao chép mục dưới đây cho từng thành viên.
 ### Bằng chứng
 
 -
+
+## NguyenTanDung-2A202603734
+
+### Phần việc phụ trách
+
+- Nhóm trưởng: điều phối, chia việc, trình bày Gate 2a, nộp bài.
+- Người gắn nhãn 1 ở nhiệm vụ C (20 ca lỗi).
+- Chủ `report/team/pilot_plan.yaml` và `report/team/ho_so_launch_v0.md`; điền `TEAM.md`, `group_report.md`.
+
+### Đóng góp cụ thể
+
+- Viết `pilot_plan.yaml`: D1 (cỡ mẫu), D2 (tách được tác động), đánh đổi mức chênh 6 điểm, luật dừng an toàn và mức sử dụng.
+- Các phần còn chờ số A/B của người viết code, sẽ cập nhật sau.
+
+### Bằng chứng
+
+- Commit `03ff33d` trên `main`: `report/team/pilot_plan.yaml`.
