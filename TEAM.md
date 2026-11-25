@@ -14,7 +14,7 @@
 |   1 | Nguyễn Tấn Dũng | 2A202603734 | 26ai.dungnt15@vinuni.edu.vn | dungtran16042003-afk | Nhóm trưởng, người gắn nhãn 1 |
 |   2 |Nguyễn Duy Anh|2A202603796|26ai.anhnd15@vinuni.edu.vn|Danh1126|Người viết code + Người gắn nhãn 2|
 |   3 | Lê Huy Anh | 2A202603786 | hanhfpt2226@gmail.com | | Người kiểm số, giữ hồ sơ launch, viết code D1 và E1 |
-|   4 |        |      |       |        |         |
+|   4 | (không có, nhóm 3 người) | | | | |
 
 Bốn vai của lab:
 
