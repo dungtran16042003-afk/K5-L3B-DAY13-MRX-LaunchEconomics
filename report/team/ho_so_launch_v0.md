@@ -10,10 +10,16 @@ Nhóm: MRX · Lớp: L3B
 | 2 · Ba yếu tố nhạy nhất | So với A2: làm lại gấp đôi +51,8%, xem lại gấp đôi +40,7%, lương tăng 25% làm chi phí tăng 23,1% (`simulated`). | Giả lập | PM trợ lý hoàn phí |
 | 3 · So với nhân viên tự làm | Toàn mẫu B3, tối đa 3 lần chạy: 7.037.585 đ/1.200 yêu cầu = 5.865 đ/yêu cầu (0,49× mức 12.000 đ), đã tính 222 yêu cầu nhân viên làm thay, trước chi phí cố định. Nội địa + hàng nặng A4, đã cộng cố định: 4.599 đ/việc trợ lý làm thành công ở 45.000 yêu cầu/tháng và 5.784 đ ở 22.500. Quốc tế: 22.515 đ/việc thành công (1,88×). Các mức chi phí là `simulated`. | Giả lập | Giám đốc vận hành |
 | 4 · Chỉ số chính, chỉ số dùng, chỉ số an toàn | Trong đợt chạy thử: đóng đúng hạn và không mở lại 82,83%; sửa/bỏ gợi ý 27,12%; mở lại 4,25% | Xong, có bằng chứng | Trưởng nhóm CSKH |
-| 5 · Bảng lỗi và cách khắc phục | Chờ hai bộ nhãn độc lập cho 20 ca để xác nhận đồng thuận và chọn 5 ca khắc phục. | Chưa | Trưởng nhóm CSKH |
+| 5 · Bảng lỗi và cách khắc phục | Hai bộ nhãn độc lập đồng thuận 15/20 = 75% (dưới 80%, đã viết lại định nghĩa và chốt nhãn thống nhất 20 ca); bảng khắc phục 5 ca đủ 5 loại (ca 1, 7, 10, 4, 17), mỗi dòng có ngưỡng đo được và một vai phụ trách | Xong, có bằng chứng | Trưởng nhóm CSKH |
 | 6 · Pilot plan | Chia theo nhân viên, 20 + 20 cụm, ngẫu nhiên phân tầng theo depot; 859 yêu cầu hiệu dụng mỗi nhóm cho mức chênh 6 điểm (power khoảng 0,64 nếu tác động thật chỉ 5 điểm); phạm vi noi_dia + hang_nang; 3 luật dừng (an toàn 6%, chi phí 8.000 đ [simulated], bỏ qua gợi ý 40%); quyết định 2027-01-05 | Xong, có bằng chứng | Giám đốc vận hành LogiX-VN |
 | 7 · Rủi ro kinh tế | Làm lại gấp đôi: 6.787 đ/việc toàn mẫu. Xem lại 100% trong phạm vi pilot: 11.743–12.415 đ/việc so với 12.000 đ khi nhân viên tự làm (`simulated`). | Giả lập | PM trợ lý hoàn phí |
 
-**Đề xuất:** Go · Go có điều kiện · No-go (giữ một). Go có điều kiện: ghi từng điều kiện, người phụ trách, ngày kiểm tra. No-go: ghi việc phải làm để quay lại cổng.
+**Đề xuất: Go có điều kiện** cho pilot có nhóm đối chứng, phạm vi `noi_dia` + `hang_nang`. Không đưa `quoc_te` (1,88× mức 12.000 đ, thành công 27,3%) và `doi_tac` (0,85×) vào pilot [simulated].
 
-- ...
+Con số bất lợi và cách xử lý: xem lại 100% làm chi phí lên 11.743 đ (0,98×), hoặc 12.415 đ (1,03×) nếu làm lại 15,3 phút như dữ liệu [simulated], nên pilot phải giảm xem lại theo bậc. Pilot chỉ phát hiện được mức chênh 6 điểm, power khoảng 0,64 nếu tác động thật là 5 điểm. Tỉ lệ mở lại hiện 4,25% và đợt chạy thử không có đối chứng, nên chưa kết luận trợ lý đã cải thiện chỉ số.
+
+Điều kiện:
+- Sửa khoá chống trùng và đối soát sổ cái (ca 7, 20) trước ngày bắt đầu pilot · Kỹ sư trưởng agent · kiểm tra 2026-12-15.
+- Ký chấp nhận mức chênh 6 điểm (power khoảng 0,64 ở mức 5 điểm) · Giám đốc vận hành LogiX-VN · kiểm tra 2026-12-10.
+- Bật đủ event có `trace_id`; thay phút simulated bằng phút đo thật sau tuần đầu · PM trợ lý hoàn phí · kiểm tra 2026-12-15 (event) và 2026-12-29 (phút đo thật).
+- Có kế hoạch giảm xem lại theo bậc, vì xem lại 100% gần bằng chi phí nhân viên tự làm · Trưởng nhóm CSKH · kiểm tra 2026-12-15.
