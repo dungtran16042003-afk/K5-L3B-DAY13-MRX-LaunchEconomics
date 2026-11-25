@@ -9,7 +9,7 @@ Nhóm: ... · Lớp: ...
 | 1 · Chi phí mỗi việc thành công | ... | ... | ... |
 | 2 · Ba yếu tố nhạy nhất | ... | ... | ... |
 | 3 · So với nhân viên tự làm | ... | ... | ... |
-| 4 · Chỉ số chính, chỉ số dùng, chỉ số an toàn | ... | ... | ... |
+| 4 · Chỉ số chính, chỉ số dùng, chỉ số an toàn | Trong đợt chạy thử: đóng đúng hạn và không mở lại 82,83%; sửa/bỏ gợi ý 27,12%; mở lại 4,25% | Xong, có bằng chứng | Trưởng nhóm CSKH |
 | 5 · Bảng lỗi và cách khắc phục | ... | ... | ... |
 | 6 · Pilot plan | ... | ... | ... |
 | 7 · Rủi ro kinh tế | ... | ... | ... |

@@ -4,6 +4,8 @@ Không cần khoá API. Điền các chỗ ghi VIẾT Ở ĐÂY (đánh dấu TO
 Bản gốc chưa sửa nằm ở lab13_starter.py.
 """
 import math
+from statistics import NormalDist
+
 import pandas as pd
 
 # Bảng giá GIẢ ĐỊNH của lab (không phải giá thật của nhà cung cấp nào)
@@ -117,6 +119,69 @@ def in_nhiem_vu_a4(runs, reqs):
     print(f"CPS phạm vi + cố định khối lượng 50% [simulated]: {cps_half_co_dinh:,.0f} đ ({cps_half_co_dinh / BASELINE:.2f}x)")
 
 
+# ---------- Nhiệm vụ D1 · Cỡ mẫu pilot ----------
+def co_mau_hai_ti_le(baseline, muc_tieu, alpha=0.05, power=0.80):
+    """Cỡ mẫu tối thiểu mỗi nhánh cho kiểm định hai phía, chia đều."""
+    ti_le_gop = (baseline + muc_tieu) / 2
+    chuan = NormalDist()
+    z_alpha = chuan.inv_cdf(1 - alpha / 2)
+    z_power = chuan.inv_cdf(power)
+    do_lech_gop = math.sqrt(2 * ti_le_gop * (1 - ti_le_gop))
+    do_lech_hai_nhanh = math.sqrt(
+        baseline * (1 - baseline) + muc_tieu * (1 - muc_tieu)
+    )
+    return math.ceil(
+        ((z_alpha * do_lech_gop + z_power * do_lech_hai_nhanh) / (muc_tieu - baseline)) ** 2
+    )
+
+
+def in_co_mau_pilot():
+    baseline = 0.70
+    icc = 0.02
+    yeu_cau_moi_nhan_vien = 75
+    nhan_vien_moi_nhanh = 20
+    depot_moi_nhanh = 6
+
+    co_mau_5_diem = co_mau_hai_ti_le(baseline, 0.75)
+    he_so_thiet_ke = 1 + (yeu_cau_moi_nhan_vien - 1) * icc
+    co_mau_theo_nhan_vien = math.ceil(co_mau_5_diem * he_so_thiet_ke)
+    so_nhan_vien = math.ceil(co_mau_theo_nhan_vien / yeu_cau_moi_nhan_vien)
+
+    co_mau_6_diem = co_mau_hai_ti_le(baseline, 0.76)
+    # Giải bất đẳng thức c*m / (1 + (m-1)*ICC) >= n theo m.
+    yeu_cau_6_diem = math.ceil(
+        co_mau_6_diem * (1 - icc) / (nhan_vien_moi_nhanh - co_mau_6_diem * icc)
+    )
+    he_so_6_diem = 1 + (yeu_cau_6_diem - 1) * icc
+
+    print('\nD1 · Cỡ mẫu mỗi nhánh')
+    print(f'a) Chia theo yêu cầu, +5 điểm: {co_mau_5_diem} yêu cầu')
+    print(f'b) Chia theo nhân viên, m=75: DE={he_so_thiet_ke:.2f}, '
+          f'{co_mau_theo_nhan_vien} yêu cầu, {so_nhan_vien} nhân viên')
+    print(f'c) 20 nhân viên: cỡ mẫu hiệu dụng < {nhan_vien_moi_nhanh / icc:.0f}')
+    print(f'd) 6 depot: cỡ mẫu hiệu dụng < {depot_moi_nhanh / icc:.0f}')
+    print(f'e) +6 điểm: cần {co_mau_6_diem} yêu cầu hiệu dụng, '
+          f'{yeu_cau_6_diem} yêu cầu/nhân viên với 20 nhân viên (DE={he_so_6_diem:.2f})')
+
+
+# ---------- Nhiệm vụ E1 · Chỉ số từ dữ liệu chạy thử ----------
+def in_chi_so_chay_thu(reqs):
+    mo_lai = reqs['mo_lai_trong_7_ngay'].eq(1)
+    dong_dung_han = reqs['dong_trong_24h'].eq(1) & ~mo_lai
+    da_xem = reqs['duoc_xem_lai'].eq(1)
+    bo_qua = da_xem & reqs['quyet_dinh_xem_lai'].isin(['sua', 'bo'])
+    trong_pham_vi = reqs['loai'].isin(['noi_dia', 'hang_nang'])
+
+    print('\nD3 / E1 · Chỉ số trong đợt chạy thử')
+    for ten, tu_so, mau_so in (
+        ('Đóng trong 24 giờ và không mở lại trong 7 ngày', dong_dung_han.sum(), len(reqs)),
+        ('Sửa hoặc bỏ trong các yêu cầu đã xem lại', bo_qua.sum(), da_xem.sum()),
+        ('Mở lại trong 7 ngày, toàn mẫu', mo_lai.sum(), len(reqs)),
+        ('Mở lại trong 7 ngày, nội địa và hàng nặng', (mo_lai & trong_pham_vi).sum(), trong_pham_vi.sum()),
+    ):
+        print(f'{ten}: {tu_so}/{mau_so} = {tu_so / mau_so:.2%}')
+
+
 if __name__ == '__main__':
     runs = pd.read_csv('logix_runs.csv')
     reqs = pd.read_csv('logix_requests.csv', keep_default_na=False)
@@ -129,6 +194,5 @@ if __name__ == '__main__':
     
     # TODO CP1 · Nhiệm vụ A3: tính lại theo từng giá trị của cột loai.
     # TODO CP2 · Nhiệm vụ B: đổi từng yếu tố, ghi vào bảng độ nhạy.
-    # TODO CP4 · Nhiệm vụ D: cỡ mẫu.
-    #   from statsmodels.stats.proportion import proportion_effectsize
-    #   from statsmodels.stats.power import NormalIndPower
+    in_co_mau_pilot()
+    in_chi_so_chay_thu(reqs)
